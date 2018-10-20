@@ -1,14 +1,17 @@
 # lem_in
- This project is kinda ant farm manager.
+This project is kinda ant farm manager.
 
 This program receives the data describing the ant farm from the standard output in the following format:
 
+```
 number_of_ants
 the_rooms
 the_links
+```
 
 The ant farm is defined by the following links:
 
+```
 10
 ##start
 1 23 3
@@ -34,8 +37,10 @@ The ant farm is defined by the following links:
 7-2
 7-4
 6-5
+```
 
 Which corresponds to the following representation:
+```
            _______________
           /               \
   ______[5]----[3]----[1]  |
@@ -44,13 +49,14 @@ Which corresponds to the following representation:
  \   _________/ |  /       |
   \ /          [2]/_______/
   [7]_________/
+```
 
 There are two parts:
-◦ The rooms, which are defined by: name coord_x coord_y
-◦ The links, which are defined by: name1-name2
-◦ All of it is broken by comments, which start with #
+- The rooms, which are defined by: `name coord_x coord_y`
+- The links, which are defined by: `name1-name2`
+- All of it is broken by comments, which start with `#`
 
-Lines that start with ## are commands modifying the properties of the line that comes right after.
+Lines that start with `##` are commands modifying the properties of the line that comes right after.
 
 Any unknown command will be ignored.
 Any non compliant or empty lines will automatically stop the ant farm’s reading as well as the orderly processing of the acquired data.
@@ -59,13 +65,17 @@ If there isn’t enough data to process normally the program will display ERROR
 
 If everything is OK, the output will be like:
 
+```
 number_of_ants
 the_rooms
 the_links
 Lx-y Lz-w Lr-o ...
+```
 
 x, z, r represents the ants’ numbers (going from 1 to number_of_ants) and y, w, o represents the rooms’ names (L means that that's an ant actually).
 
-Example of compilation:
+#### Example of compilation:
+````
 make
 ./lem-in < testmaps/map1.txt
+````
